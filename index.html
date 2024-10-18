@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMEN-GOGS</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            box-sizing: border-box;
+        }
+        .container {
+            text-align: center;
+            padding: 10px; /* Minimized padding */
+            border: 5px solid red;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 1000px;
+            box-sizing: border-box;
+            animation: borderAnimation 5s infinite;
+            position: relative; /* Added for absolute positioning */
+        }
+        @keyframes borderAnimation {
+            0% { border-color: red; }
+            50% { border-color: yellow; }
+            100% { border-color: green; }
+        }
+        h1 {
+            margin: 5px; /* Minimized margin */
+            font-weight: bold;
+            animation: motionAnimation 5s infinite;
+            font-size: 2.5em; /* Heading 1 size */
+            color: black;
+        }
+        @keyframes motionAnimation {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            background-color: red;
+            border: 3px solid green;
+            border-radius: 50px;
+            animation: glow 2s infinite alternate;
+            text-decoration: none;
+            margin: 10px 0; /* Adjusted margin */
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px green; }
+            100% { box-shadow: 0 0 20px yellow; }
+        }
+        .image-container {
+            position: relative; /* Position relative for the countdown */
+            margin: 10px 0; /* Minimized margin */
+        }
+        img {
+            width: 100%; /* Image width set to 100% for full-screen width */
+            height: auto; /* Adjust height to maintain aspect ratio */
+            max-height: 60vh; /* Set max-height to ensure it fits within the screen */
+            object-fit: cover; /* Ensure the image covers the area */
+            object-position: top; /* Make the face more visible */
+        }
+        .contact-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            background-color: blue;
+            border-radius: 30px;
+            margin: 5px; /* Minimized margin */
+            animation: glow 2s infinite alternate;
+            text-decoration: none;
+        }
+        #countdown {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: red;
+            position: absolute; /* Absolute positioning */
+            right: 20px; /* Distance from the right */
+            top: 20px; /* Distance from the top */
+            background-color: rgba(255, 255, 255, 0.7); /* Slightly transparent background */
+            padding: 5px;
+            border-radius: 5px;
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AMEN-GOGS</h1>
+        
+        <!-- Get More Button with YouTube Subscription Prompt -->
+        <a href="#" class="button" id="getMoreBtn" onclick="startCountdown()">Get More Bonus</a>
+        
+        <!-- Image in the Center (Face Visible, Wider and Shorter) -->
+        <div class="image-container">
+            <img src="https://cdn.pixabay.com/photo/2024/08/13/11/57/ai-generated-8965819_1280.png" alt="Center Image">
+            <!-- Countdown -->
+            <div id="countdown"></div>
+        </div>
+        
+        <!-- Contact Information -->
+        <a href="tel:+251918203416" class="contact-button">+251918203416</a>
+        <a href="mailto:assefacn@gmail.com" class="contact-button">assefacn@gmail.com</a>
+    </div>
+
+    <script>
+        let countdown; // Countdown variable
+        const countdownDisplay = document.getElementById("countdown");
+
+        function startCountdown() {
+            // Open YouTube in a new tab with the subscription confirmation prompt
+            window.open("https://www.youtube.com/channel/UCLBivSEh30F44ptAAgEVRUA?sub_confirmation=1");
+
+            countdown = 50; // Set to 50 seconds
+            countdownDisplay.style.display = "block"; // Show the countdown
+            countdownDisplay.textContent = "Redirecting in " + countdown + " seconds...";
+
+            const interval = setInterval(() => {
+                countdown--;
+                countdownDisplay.textContent = "Redirecting in " + countdown + " seconds...";
+
+                if (countdown < 0) {
+                    clearInterval(interval);
+                    window.location.href = "https://t.me/GOGSmore"; // Redirect to Telegram after countdown
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
